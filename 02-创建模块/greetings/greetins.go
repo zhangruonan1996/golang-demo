@@ -16,8 +16,27 @@ func Hello(name string) (string, error) {
 
 	// 如果接收到名称，则返回一个嵌入名称的值
 	// 在问候消息中.
-	message := fmt.Sprintf(randomFormat(), name)
+	message := fmt.Sprintf("Hi, %v. Welcome!", name)
 	return message, nil
+}
+
+// Hellos 返回一个map，该地图将每个已命名的人员
+//与问候消息相关联.
+func Hellos(names []string) (map[string]string, error) {
+    // 将名称与消息关联的map.
+    messages := make(map[string]string)
+    // 遍历接收到的名称切片，调用
+    // Hello 函数为每个名字获取一条消息.
+    for _, name := range names {
+        message, err := Hello(name)
+        if err != nil {
+            return nil, err
+        }
+        // 在map中，将检索到的消息与
+        // 名称相关联.
+        messages[name] = message
+    }
+    return messages, nil
 }
 
 // init 为函数中使用的变量设置初始值.
