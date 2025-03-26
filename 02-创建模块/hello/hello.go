@@ -15,7 +15,7 @@ func main() {
 	log.SetFlags(0)
 
 	// 请求问候消息.
-	message, err := greetings.Hello("")
+	message, err := greetings.Hello("章若楠")
 	// 如果返回错误，则将其打印到控制台并
     // 退出程序.
     if err != nil {
