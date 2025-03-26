@@ -14,8 +14,12 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
+	// 一个名字切片.
+	names := []string{"章若楠", "白敬亭", "杨洋"}
+
 	// 请求问候消息.
-	message, err := greetings.Hello("章若楠")
+	// message, err := greetings.Hello("章若楠")
+	messages, err := greetings.Hellos(names)
 	// 如果返回错误，则将其打印到控制台并
     // 退出程序.
     if err != nil {
@@ -24,5 +28,8 @@ func main() {
 
 	// 如果没有返回错误，则打印返回的消息
     // 到控制台.
-	fmt.Println(message)
+	fmt.Println(messages)
+	for _, message := range messages {
+		fmt.Println(message)
+	}
 }
